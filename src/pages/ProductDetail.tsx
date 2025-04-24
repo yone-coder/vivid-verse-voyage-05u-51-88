@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import ProductHeader from "@/components/product/ProductHeader";
 import { useParams } from "react-router-dom";
@@ -18,7 +19,6 @@ import ProductWarranty from "@/components/product/ProductWarranty";
 import ProductPaymentOptions from "@/components/product/ProductPaymentOptions";
 import PricingSection from '@/components/product/PricingSection';
 import StockIndicator from '@/components/product/StockIndicator';
-import InfoBand from '@/components/product/InfoBand';
 
 const DEFAULT_PRODUCT_ID = "aae97882-a3a1-4db5-b4f5-156705cd10ee";
 
@@ -527,19 +527,19 @@ const ProductDetail = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white" ref={contentRef}>
       <ProductHeader />
+      {/* Remove the spacing div that was here */}
       <div className="relative w-full bg-transparent">
         <ProductImageGallery images={productImages.length > 0 ? productImages : ["/placeholder.svg"]} />
       </div>
 
       <div className="flex-1">
         <div className="bg-white">
-          <InfoBand />
           <CoreIdentity />
           <PricingSection />
           <ProductColorVariants />
 
           <div className="mt-1 mb-1 p-3 bg-white">
-            <div className="mt-4">
+            <div className="mt-2">
               <ProductQuantitySelector 
                 quantity={quantity}
                 onIncrement={incrementQuantity}
@@ -574,9 +574,9 @@ const ProductDetail = () => {
             </div>
 
             <AliExpressTabs tabs={tabsConfig} initialTab={0} className="mt-4" />
-          </div>
-        </div>
-      </div>
+          </div> {/* Close white box wrapper */}
+        </div> {/* Close bg-white wrapper */}
+      </div> {/* Close flex-1 */}
 
       <StickyBuyButton 
         selectedColor={selectedColor}
