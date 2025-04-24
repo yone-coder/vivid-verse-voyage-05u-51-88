@@ -396,8 +396,8 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({ images }) => 
   };
 
   return (
-    <div ref={containerRef} className="flex flex-col gap-1 bg-transparent mb-0">
-      <div className="relative w-full aspect-square overflow-hidden">
+    <div ref={containerRef} className="flex flex-col min-h-screen bg-transparent mb-0">
+      <div className="relative w-full bg-transparent">
         <Carousel
           className="w-full h-full"
           opts={{
@@ -505,6 +505,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({ images }) => 
         currentIndex={currentIndex}
         onThumbnailClick={handleThumbnailClick}
         isPlaying={isPlaying}
+        className="mt-4"
       />
 
       {isFullscreenMode && currentIndex !== 0 && (
